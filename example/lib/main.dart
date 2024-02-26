@@ -152,6 +152,22 @@ class DemoPage extends StatelessWidget {
                 },
               ),
 
+// video
+              const SizedBox(height: 20),
+              StyledTextAdvance(
+                text: "Here's a video: <video>video_source_url_here</video>",
+                tags: {
+                  "video": StyledTextAdvanceVideoTag(
+                    width: 300, // Optional: specify width
+                    height: 200, // Optional: specify height
+                    onTap: () {
+                      // Optional: define what happens when the video is tapped
+                      print("Video tapped!");
+                    },
+                  ),
+                },
+              ),
+
               // Action
               const SizedBox(height: 20),
               StyledTextAdvance(
