@@ -141,10 +141,10 @@ class DemoPage extends StatelessWidget {
               // Image
               const SizedBox(height: 20),
               StyledTextAdvance(
-                text: 'Text with image <img/>.',
+                text:
+                    'Here is a local image: <img>assets/image.jpg</img> and a network image: <img>https://example.com/image.jpg</img>.',
                 tags: {
                   'img': StyledTextAdvanceImageTag(
-                    'assets/image.jpg', // Make sure this path is correct
                     width: 100,
                     height: 100,
                     fit: BoxFit.cover,

@@ -180,10 +180,10 @@ packages:
     dependency: "direct main"
     description:
       name: styled_text_advance
-      sha256: "5bf53f1805022ff86abb996040d7a2da8643df05a5c4e58a3a6a6194c1f6f3d6"
+      sha256: "6995895218008a9e77de307d6258b5908a24c3857b58a216f71a247016c6928c"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.0+3"
+    version: "1.0.0+5"
   term_glyph:
     dependency: transitive
     description:
