@@ -1,9 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:styled_text_advance/tags/styled_text_advance_tag_base.dart';
 import 'package:styled_text_advance/widgets/custom_styled_video.dart';
 import 'package:video_player/video_player.dart';
+
+// CustomVideoPlayerWithControls implementation should be here or imported from another file
 
 class StyledTextAdvanceVideoTag extends StyledTextAdvanceTagBase {
   /// Optional video width
@@ -41,19 +42,17 @@ class StyledTextAdvanceVideoTag extends StyledTextAdvanceTagBase {
 
     final String videoSource = textContent ?? "";
 
-    VideoPlayerController videoController;
-    if (isNetworkVideo) {
-      videoController = VideoPlayerController.network(videoSource);
-    } else {
-      videoController = VideoPlayerController.asset(videoSource);
-    }
+    // Initializing VideoPlayerController based on video source type
+    VideoPlayerController videoController = isNetworkVideo
+        ? VideoPlayerController.network(videoSource)
+        : VideoPlayerController.asset(videoSource);
 
     // Create the custom video player widget with controls
     Widget videoWidget = FutureBuilder(
       future: videoController.initialize(),
-      builder: (context, snapshot) {
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
-          // Use CustomVideoPlayerWithControls here
+          // Use CustomVideoPlayerWithControls here, ensuring the video player is sized appropriately
           return CustomVideoPlayerWithControls(
             controller: videoController,
             width: width, // Pass optional width
@@ -66,6 +65,7 @@ class StyledTextAdvanceVideoTag extends StyledTextAdvanceTagBase {
       },
     );
 
+    // Wrapping videoWidget with GestureDetector if onTap is provided
     if (onTap != null) {
       videoWidget = GestureDetector(
         child: videoWidget,
@@ -73,12 +73,10 @@ class StyledTextAdvanceVideoTag extends StyledTextAdvanceTagBase {
       );
     }
 
-    // Create an InlineSpan for the video
-    final InlineSpan span = WidgetSpan(
+    // Create an InlineSpan for the video, embedding the videoWidget
+    return WidgetSpan(
       child: SizedBox(width: width, height: height, child: videoWidget),
       alignment: alignment,
     );
-
-    return span;
   }
 }
