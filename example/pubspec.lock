@@ -176,14 +176,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
-  styled_text_advance:
-    dependency: "direct main"
-    description:
-      name: styled_text_advance
-      sha256: a6abeae6828fa2fba7a94526693d1aed534416f87395d0f7e1eb9401a4454b65
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.0+1"
   term_glyph:
     dependency: transitive
     description:
@@ -216,13 +208,5 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "13.0.0"
-  xmlstream:
-    dependency: transitive
-    description:
-      name: xmlstream
-      sha256: cfc14e3f256997897df9481ae630d94c2d85ada5187ebeb868bb1aabc2c977b4
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.1.1"
 sdks:
   dart: ">=3.3.0 <4.0.0"

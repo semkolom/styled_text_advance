@@ -1,4 +1,4 @@
-library styled_text;
+library styled_text_advance;
 
 export 'tags/styled_text_tag.dart';
 export 'tags/styled_text_tag_action.dart';
