@@ -161,12 +161,12 @@ class DemoPage extends StatelessWidget {
                   text: "Here's a video: <video>assets/video.mp4</video>",
                   tags: {
                     "video": StyledTextAdvanceVideoTag(
-                        //width: 300, // Optional: specify width
-                        //height: 200, // Optional: specify height
-                        // onTap: () {
+                      //width: 300, // Optional: specify width
+                      //height: 200, // Optional: specify height
+                      onTap: () {
                         // Optional: define what happens when the video is tapped
-                        //},
-                        ),
+                      },
+                    ),
                   },
                 ),
 

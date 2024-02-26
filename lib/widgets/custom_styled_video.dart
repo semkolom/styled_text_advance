@@ -39,12 +39,13 @@ class _CustomVideoPlayerWithControlsState
         alignment: Alignment.bottomCenter,
         children: [
           VideoPlayer(widget.controller),
-          _buildControls(),
+          _buildControls(), // Build the custom controls overlay
         ],
       ),
     );
   }
 
+  // Builds the video player controls
   Widget _buildControls() {
     return AnimatedOpacity(
       opacity: 1.0,
@@ -55,6 +56,12 @@ class _CustomVideoPlayerWithControlsState
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
+            // Skip backward button
+            IconButton(
+              icon: Icon(Icons.skip_previous, color: Colors.white),
+              onPressed: skipBackward,
+            ),
+            // Play/Pause toggle button
             IconButton(
               icon: Icon(
                 widget.controller.value.isPlaying
@@ -72,7 +79,12 @@ class _CustomVideoPlayerWithControlsState
                 });
               },
             ),
-            // Speed control
+            // Skip forward button
+            IconButton(
+              icon: Icon(Icons.skip_next, color: Colors.white),
+              onPressed: skipForward,
+            ),
+            // Playback speed control
             DropdownButton<double>(
               value: _playbackSpeed,
               onChanged: (double? newValue) {
@@ -95,7 +107,7 @@ class _CustomVideoPlayerWithControlsState
                 color: Colors.deepPurpleAccent,
               ),
             ),
-            // Volume control
+            // Volume control slider
             Slider(
               value: _volume,
               min: 0.0,
@@ -111,5 +123,34 @@ class _CustomVideoPlayerWithControlsState
         ),
       ),
     );
+  }
+
+  // Function to skip the video backward by 10 seconds
+  void skipBackward() {
+    final currentPosition = widget.controller.value.position;
+    final skipDuration = Duration(seconds: 10); // Define skip duration
+    final newPosition = currentPosition - skipDuration;
+
+    if (newPosition >= Duration.zero) {
+      widget.controller.seekTo(newPosition);
+    } else {
+      // If the new position is before the start, rewind to the beginning
+      widget.controller.seekTo(Duration.zero);
+    }
+  }
+
+  // Function to skip the video forward by 10 seconds
+  void skipForward() {
+    final currentPosition = widget.controller.value.position;
+    final duration = widget.controller.value.duration;
+    final skipDuration = Duration(seconds: 10); // Define skip duration
+    final newPosition = currentPosition + skipDuration;
+
+    if (duration - newPosition >= Duration.zero) {
+      widget.controller.seekTo(newPosition);
+    } else {
+      // If the new position is beyond the video length, skip to the end
+      widget.controller.seekTo(duration);
+    }
   }
 }
