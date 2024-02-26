@@ -14,7 +14,6 @@ You can set the click handler for the tag, through a tag definition class `Style
   - [Line breaks](#line-breaks)
 - [Usage examples](#usage-examples)
   - [How to insert a widget into text](#an-example-of-inserting-an-input-field-widget-in-place-of-a-tag)
-- [Migration from version 2.0](#migration-from-version-20)
 
 ## Getting Started
 
