@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:styled_text_advance/styled_text.dart';
+import 'package:styled_text_advance/styled_text_advance.dart';
 
 void main() => runApp(const MyApp());
 
