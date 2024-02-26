@@ -8,5 +8,5 @@ export 'tags/styled_text_advance_tag_icon.dart';
 export 'tags/styled_text_advance_tag_widget.dart';
 export 'tags/styled_text_advance_tag_widget_builder.dart';
 
-export 'widgets/styled_text.dart';
-export 'widgets/custom_styled_text.dart';
+export 'widgets/styled_text_advance.dart';
+export 'widgets/custom_styled_text_advance.dart';

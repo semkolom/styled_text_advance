@@ -3,7 +3,7 @@ import 'dart:collection';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:styled_text_advance/tags/styled_text_advance_tag_base.dart';
-import 'package:styled_text_advance/widgets/styled_text.dart';
+import 'package:styled_text_advance/widgets/styled_text_advance.dart';
 import 'package:xmlstream/xmlstream.dart';
 
 /// The builder callback for the [CustomStyledTextAdvance] widget.
