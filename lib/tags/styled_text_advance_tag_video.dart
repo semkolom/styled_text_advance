@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:styled_text_advance/tags/styled_text_advance_tag_base.dart';
+import 'package:styled_text_advance/widgets/custom_styled_video.dart';
 import 'package:video_player/video_player.dart';
 
 class StyledTextAdvanceVideoTag extends StyledTextAdvanceTagBase {
@@ -38,29 +39,25 @@ class StyledTextAdvanceVideoTag extends StyledTextAdvanceTagBase {
         (textContent.startsWith('http://') ||
             textContent.startsWith('https://'));
 
-    Widget videoWidget;
-
-    // Use textContent as the video source, defaulting to an empty string if null
     final String videoSource = textContent ?? "";
 
-    // Initialize the video player controller with a Uri
     VideoPlayerController videoController;
     if (isNetworkVideo) {
-      videoController = VideoPlayerController.networkUrl(
-          Uri.parse(videoSource)); // Convert String to Uri
+      videoController = VideoPlayerController.network(videoSource);
     } else {
       videoController = VideoPlayerController.asset(videoSource);
     }
 
-    // Create the video player widget
-    videoWidget = FutureBuilder(
+    // Create the custom video player widget with controls
+    Widget videoWidget = FutureBuilder(
       future: videoController.initialize(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
-          // Optionally adjust the aspect ratio and other settings
-          return AspectRatio(
-            aspectRatio: videoController.value.aspectRatio,
-            child: VideoPlayer(videoController),
+          // Use CustomVideoPlayerWithControls here
+          return CustomVideoPlayerWithControls(
+            controller: videoController,
+            width: width, // Pass optional width
+            height: height, // Pass optional height
           );
         } else {
           // Placeholder or loading indicator until the video is initialized
@@ -69,7 +66,6 @@ class StyledTextAdvanceVideoTag extends StyledTextAdvanceTagBase {
       },
     );
 
-    // Optionally wrap the video widget in a GestureDetector if an onTap callback is provided
     if (onTap != null) {
       videoWidget = GestureDetector(
         child: videoWidget,
