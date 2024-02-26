@@ -3,26 +3,22 @@ import 'package:flutter/widgets.dart';
 import 'package:styled_text_advance/tags/styled_text_advance_tag_base.dart';
 
 class StyledTextAdvanceImageTag extends StyledTextAdvanceTagBase {
-  /// Image source, which can be a network URL or an asset path.
-  final String imageSource;
-
-  /// Image width
+  /// Optional image width
   final double? width;
 
-  /// Image height
+  /// Optional image height
   final double? height;
 
-  /// How the image should be inscribed into the box.
+  /// How the image should fit within its bounds
   final BoxFit? fit;
 
-  /// Aligning the image relative to the text
+  /// Image alignment relative to the text
   final PlaceholderAlignment alignment;
 
-  /// Called when the image is tapped or otherwise activated.
+  /// Action to be called when the image is tapped
   final StyledTextAdvanceTagActionCallback? onTap;
 
-  StyledTextAdvanceImageTag(
-    this.imageSource, {
+  StyledTextAdvanceImageTag({
     this.width,
     this.height,
     this.fit,
@@ -39,11 +35,15 @@ class StyledTextAdvanceImageTag extends StyledTextAdvanceTagBase {
     required Map<String?, String?> attributes,
     GestureRecognizer? recognizer,
   }) {
-    // Determine if the imageSource is a network URL or a local asset
-    final isNetworkImage =
-        imageSource.startsWith('http://') || imageSource.startsWith('https://');
+    // Determine if the textContent is a network URL or a local asset
+    final isNetworkImage = textContent != null &&
+        (textContent.startsWith('http://') ||
+            textContent.startsWith('https://'));
 
     Widget imageWidget;
+
+    // Use textContent as the image source, defaulting to an empty string if null
+    final String imageSource = textContent ?? "";
 
     // Create the appropriate widget based on the source type
     if (isNetworkImage) {

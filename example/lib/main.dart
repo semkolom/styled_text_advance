@@ -98,8 +98,7 @@ class DemoPage extends StatelessWidget {
               // Multiline text without breaks
               const SizedBox(height: 20),
               StyledTextAdvance(
-                text: """Multiline text 
-(wo breaks)""",
+                text: """Multiline text  (no breaks)""",
                 tags: {
                   'b': StyledTextAdvanceTag(
                       style: const TextStyle(fontWeight: FontWeight.bold)),
@@ -109,8 +108,7 @@ class DemoPage extends StatelessWidget {
               // Multiline text with breaks
               const SizedBox(height: 20),
               StyledTextAdvance(
-                text: """Multiline text
-(with breaks)""",
+                text: """Multiline text (with breaks)""",
                 newLineAsBreaks: true,
                 tags: {
                   'b': StyledTextAdvanceTag(
@@ -146,11 +144,10 @@ class DemoPage extends StatelessWidget {
                 text: 'Text with image <img/>.',
                 tags: {
                   'img': StyledTextAdvanceImageTag(
-                    'assets/image.jpg', // Adjust based on your image source (local or network)
-                    width: 100, // Optional: Customize based on your need
-                    height: 100, // Optional: Customize based on your need
-                    fit: BoxFit
-                        .cover, // Optional: Adjust how the image fits within its bounds
+                    'assets/image.jpg', // Make sure this path is correct
+                    width: 100,
+                    height: 100,
+                    fit: BoxFit.cover,
                   ),
                 },
               ),
