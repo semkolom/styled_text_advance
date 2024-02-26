@@ -188,8 +188,6 @@ StyledTextAdvance(
   },
 )
 ```
----
-
 ### Specifying a tap handler 
 
 **NEW**
@@ -218,6 +216,8 @@ StyledTextAdvance(
   },
 )
 ```
+
+Specifying the image handler #
 
 **NEW**
 ```dart
