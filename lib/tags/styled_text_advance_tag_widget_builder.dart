@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/widgets.dart';
-import 'package:styled_text_advance/tags/styled_text_tag_base.dart';
+import 'package:styled_text_advance/tags/styled_text_advance_tag_base.dart';
 
 /// Signature for the widget builder function for StyledTextAdvanceWidgetBuilderTag
 typedef StyledTextAdvanceWidgetBuilderTagCallback = Widget Function(

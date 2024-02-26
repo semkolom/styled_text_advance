@@ -3,7 +3,7 @@ import 'dart:ui' as ui show TextHeightBehavior, BoxHeightStyle, BoxWidthStyle;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:styled_text_advance/tags/styled_text_tag_base.dart';
+import 'package:styled_text_advance/tags/styled_text_advance_tag_base.dart';
 import 'package:styled_text_advance/widgets/custom_styled_text.dart';
 
 ///

@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/widgets.dart';
-import 'package:styled_text_advance/tags/styled_text_tag_base.dart';
+import 'package:styled_text_advance/tags/styled_text_advance_tag_base.dart';
 
 class StyledTextAdvanceImageTag extends StyledTextAdvanceTagBase {
   /// Image source, which can be a network URL or an asset path.

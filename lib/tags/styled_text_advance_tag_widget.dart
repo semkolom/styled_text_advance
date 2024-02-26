@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:styled_text_advance/tags/styled_text_tag_widget_builder.dart';
+import 'package:styled_text_advance/tags/styled_text_advance_tag_widget_builder.dart';
 
 /// The class with which you can specify the widget to insert in place of the tag.
 ///

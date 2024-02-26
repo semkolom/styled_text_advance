@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/widgets.dart';
-import 'package:styled_text_advance/tags/styled_text_tag_base.dart';
+import 'package:styled_text_advance/tags/styled_text_advance_tag_base.dart';
 // import 'dart:ui' as ui show ParagraphBuilder;
 
 /// The class with which you can specify the icon for the tag.
