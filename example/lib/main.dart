@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:styled_text_advance/styled_text_advance.dart';
+import 'package:styled_text_advance/tags/styled_text_advance_tag_img.dart';
 
 void main() => runApp(const MyApp());
 
@@ -136,6 +137,21 @@ class DemoPage extends StatelessWidget {
                 text: 'Text with alarm <alarm/> icon.',
                 tags: {
                   'alarm': StyledTextAdvanceIconTag(Icons.alarm),
+                },
+              ),
+
+              // Image
+              const SizedBox(height: 20),
+              StyledTextAdvance(
+                text: 'Text with image <img/>.',
+                tags: {
+                  'img': StyledTextAdvanceImageTag(
+                    'assets/image.jpg', // Adjust based on your image source (local or network)
+                    width: 100, // Optional: Customize based on your need
+                    height: 100, // Optional: Customize based on your need
+                    fit: BoxFit
+                        .cover, // Optional: Adjust how the image fits within its bounds
+                  ),
                 },
               ),
 

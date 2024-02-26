@@ -39,13 +39,30 @@ class StyledTextAdvanceImageTag extends StyledTextAdvanceTagBase {
     required Map<String?, String?> attributes,
     GestureRecognizer? recognizer,
   }) {
-    Widget imageWidget = Image.network(
-      imageSource,
-      width: width,
-      height: height,
-      fit: fit,
-    );
+    // Determine if the imageSource is a network URL or a local asset
+    final isNetworkImage =
+        imageSource.startsWith('http://') || imageSource.startsWith('https://');
 
+    Widget imageWidget;
+
+    // Create the appropriate widget based on the source type
+    if (isNetworkImage) {
+      imageWidget = Image.network(
+        imageSource,
+        width: width,
+        height: height,
+        fit: fit,
+      );
+    } else {
+      imageWidget = Image.asset(
+        imageSource,
+        width: width,
+        height: height,
+        fit: fit,
+      );
+    }
+
+    // Wrap the image widget in a GestureDetector if an onTap callback is provided
     if (onTap != null) {
       imageWidget = GestureDetector(
         child: imageWidget,
@@ -53,6 +70,7 @@ class StyledTextAdvanceImageTag extends StyledTextAdvanceTagBase {
       );
     }
 
+    // Create an InlineSpan for the image
     final InlineSpan span = WidgetSpan(
       child: imageWidget,
       alignment: alignment,
