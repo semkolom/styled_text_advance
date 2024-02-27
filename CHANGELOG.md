@@ -40,3 +40,6 @@
 
 ## 1.0.0+13
 - Video Player Bug fix.
+
+## 1.0.1+1
+- Video Player Bug fix.

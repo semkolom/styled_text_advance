@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:styled_text_advance/styled_text_advance.dart';
 import 'package:styled_text_advance/tags/styled_text_advance_tag_img.dart';
+import 'package:styled_text_advance/tags/styled_text_advance_tag_video.dart';
 //import 'package:styled_text_advance/tags/styled_text_advance_tag_video.dart';
 
 void main() => runApp(const MyApp());
@@ -159,15 +160,15 @@ class DemoPage extends StatelessWidget {
                 //const SizedBox(height: 20),
                 //StyledTextAdvance(
                 // text: "Here's a video: <video>assets/video.mp4</video>",
-                //tags: {
-                // "video": StyledTextAdvanceVideoTag(
+                // tags: {
+                //  "video": StyledTextAdvanceVideoTag(
                 //width: 300, // Optional: specify width
                 //height: 200, // Optional: specify height
-                //  onTap: () {
-                // Optional: define what happens when the video is tapped
-                //  },
-                //),
+                //onTap: () {
+                //Optional: define what happens when the video is tapped
                 //},
+                // ),
+                // },
                 //),
 
                 // Action
