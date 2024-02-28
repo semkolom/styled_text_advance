@@ -70,7 +70,7 @@ class DemoPage extends StatelessWidget {
     return SelectionArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('StyledTextAdvance Demo'),
+          title: const Text('Styled Text Advance'),
         ),
         body: Center(
           child: SingleChildScrollView(

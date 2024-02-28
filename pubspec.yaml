@@ -2,7 +2,7 @@ name: styled_text_advance
 description: Text widget with formatted text using tags. Makes it easier to use formatted text in multilingual applications.
 homepage: https://github.com/semkolom/styled_text_advance
 repository: https://github.com/semkolom/styled_text_advance
-issue_tracker: https://github.com/andyduke/styled_text_package/issues
+issue_tracker: https://github.com/semkolom/styled_text_advance/issues
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -20,7 +20,7 @@ issue_tracker: https://github.com/andyduke/styled_text_package/issues
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.0.1+1
+version: 1.0.1+2
 
 environment:
   sdk: '>=3.3.0 <4.0.0'
