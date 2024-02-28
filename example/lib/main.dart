@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:styled_text_advance/styled_text_advance.dart';
 import 'package:styled_text_advance/tags/styled_text_advance_tag_img.dart';
-import 'package:styled_text_advance/tags/styled_text_advance_tag_video.dart';
 //import 'package:styled_text_advance/tags/styled_text_advance_tag_video.dart';
 
 void main() => runApp(const MyApp());
