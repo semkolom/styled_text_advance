@@ -265,9 +265,10 @@ class StyledTextAdvance extends StatelessWidget {
       softWrap: softWrap ?? defaultTextStyle.softWrap,
       overflow:
           overflow ?? textSpan.style?.overflow ?? defaultTextStyle.overflow,
-      textScaleFactor: textScaleFactor ?? MediaQuery.textScaleFactorOf(context),
       maxLines: maxLines ?? defaultTextStyle.maxLines,
       locale: locale,
+      textScaler: TextScaler.linear(
+          textScaleFactor ?? MediaQuery.textScalerOf(context) as double),
       strutStyle: strutStyle,
       textWidthBasis: textWidthBasis ?? defaultTextStyle.textWidthBasis,
       textHeightBehavior: textHeightBehavior ??
@@ -320,7 +321,8 @@ class StyledTextAdvance extends StatelessWidget {
       textDirection: textDirection,
       // softWrap
       // overflow
-      textScaleFactor: textScaleFactor ?? MediaQuery.textScaleFactorOf(context),
+      textScaler: TextScaler.linear(
+          textScaleFactor ?? MediaQuery.textScalerOf(context) as double),
       maxLines: maxLines ?? defaultTextStyle.maxLines,
       // locale
       strutStyle: strutStyle,

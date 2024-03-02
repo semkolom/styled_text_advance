@@ -7,11 +7,11 @@ class CustomVideoPlayerWithControls extends StatefulWidget {
   final double? height;
 
   const CustomVideoPlayerWithControls({
-    Key? key,
+    super.key,
     required this.controller,
     this.width,
     this.height,
-  }) : super(key: key);
+  });
 
   @override
   _CustomVideoPlayerWithControlsState createState() =>

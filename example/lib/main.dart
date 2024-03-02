@@ -222,7 +222,7 @@ class DemoPage extends StatelessWidget {
                           offset: const Offset(0.5, -4),
                           child: Text(
                             textContent ?? "",
-                            textScaleFactor: 0.85,
+                            textScaler: TextScaler.linear(0.85),
                           ),
                         );
                       },
@@ -241,7 +241,7 @@ class DemoPage extends StatelessWidget {
                           offset: const Offset(0.5, 4),
                           child: Text(
                             textContent ?? "",
-                            textScaleFactor: 0.8,
+                            textScaler: TextScaler.linear(0.8),
                           ),
                         );
                       },

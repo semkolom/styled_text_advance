@@ -1,5 +1,4 @@
 import 'package:flutter/gestures.dart';
-import 'package:flutter/widgets.dart';
 import 'package:styled_text_advance/tags/styled_text_advance_tag_base.dart';
 import 'package:styled_text_advance/tags/styled_text_advance_tag.dart';
 
@@ -12,9 +11,10 @@ class StyledTextAdvanceActionTag extends StyledTextAdvanceTag {
 
   StyledTextAdvanceActionTag(
     this.onTap, {
-    TextStyle? style,
-  }) : super(style: style);
+    super.style,
+  });
 
+  @override
   GestureRecognizer? createRecognizer(
       String? text, Map<String?, String?> attributes) {
     return TapGestureRecognizer()..onTap = () => onTap(text, attributes);
