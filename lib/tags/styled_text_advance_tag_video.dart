@@ -37,7 +37,7 @@ class StyledTextAdvanceVideoTag extends StyledTextAdvanceTagBase {
 
     // Initializing VideoPlayerController based on the video source type
     VideoPlayerController videoController = isNetworkVideo
-        ? VideoPlayerController.network(videoSource)
+        ? VideoPlayerController.networkUrl(Uri.parse(videoSource))
         : VideoPlayerController.asset(videoSource);
 
     // Create the custom video player widget with controls using a FutureBuilder

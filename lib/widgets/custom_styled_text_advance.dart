@@ -143,7 +143,7 @@ class _CustomStyledTextAdvanceState extends State<CustomStyledTextAdvance> {
       Map<String?, String?>? attributes;
 
       final xmlStreamer = XmlStreamer(
-        '<?xml version="1.0" encoding="UTF-8"?><root>' + textValue + '</root>',
+        '<?xml version="1.0" encoding="UTF-8"?><root>$textValue</root>',
         trimSpaces: false,
       );
       xmlStreamer.read().listen((e) {
@@ -221,11 +221,13 @@ class _CustomStyledTextAdvanceState extends State<CustomStyledTextAdvance> {
 
     final DefaultTextStyle defaultTextStyle = DefaultTextStyle.of(context);
     TextStyle? effectiveTextStyle = widget.style;
-    if (widget.style == null || widget.style!.inherit)
+    if (widget.style == null || widget.style!.inherit) {
       effectiveTextStyle = defaultTextStyle.style.merge(widget.style);
-    if (MediaQuery.boldTextOf(context))
+    }
+    if (MediaQuery.boldTextOf(context)) {
       effectiveTextStyle = effectiveTextStyle!
           .merge(const TextStyle(fontWeight: FontWeight.bold));
+    }
 
     final span = TextSpan(
       style: effectiveTextStyle,
