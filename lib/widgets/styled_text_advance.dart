@@ -85,7 +85,7 @@ class StyledTextAdvance extends StatelessWidget {
   ///
   /// For example, if the text scale factor is 1.5, text will be 50% larger than
   /// the specified font size.
-  final double? textScaleFactor;
+  final double? textScaler;
 
   /// An optional maximum number of lines for the text to span, wrapping if necessary.
   /// If the text exceeds the given number of lines, it will be truncated according
@@ -125,7 +125,7 @@ class StyledTextAdvance extends StatelessWidget {
     this.textDirection,
     this.softWrap = true,
     this.overflow,
-    this.textScaleFactor,
+    this.textScaler,
     this.maxLines,
     this.locale,
     this.strutStyle,
@@ -165,7 +165,7 @@ class StyledTextAdvance extends StatelessWidget {
     Map<String, StyledTextAdvanceTagBase>? tags,
     this.textAlign,
     this.textDirection,
-    this.textScaleFactor,
+    this.textScaler,
     this.maxLines,
     this.strutStyle,
     this.textWidthBasis,
@@ -268,7 +268,7 @@ class StyledTextAdvance extends StatelessWidget {
       maxLines: maxLines ?? defaultTextStyle.maxLines,
       locale: locale,
       textScaler: TextScaler.linear(
-          textScaleFactor ?? MediaQuery.textScalerOf(context) as double),
+          textScaler ?? MediaQuery.textScalerOf(context) as double),
       strutStyle: strutStyle,
       textWidthBasis: textWidthBasis ?? defaultTextStyle.textWidthBasis,
       textHeightBehavior: textHeightBehavior ??
@@ -322,7 +322,7 @@ class StyledTextAdvance extends StatelessWidget {
       // softWrap
       // overflow
       textScaler: TextScaler.linear(
-          textScaleFactor ?? MediaQuery.textScalerOf(context) as double),
+          textScaler ?? MediaQuery.textScalerOf(context) as double),
       maxLines: maxLines ?? defaultTextStyle.maxLines,
       // locale
       strutStyle: strutStyle,
