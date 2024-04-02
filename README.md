@@ -219,7 +219,7 @@ StyledTextAdvance(
 
 Specifying the image handler #
 
-**NEW**
+**IMAGE**
 ```dart
 
 StyledTextAdvance(
@@ -233,3 +233,16 @@ StyledTextAdvance(
                   ),
                 },
               ),
+
+**AUDIO**
+StyledTextAdvance(
+  text: 'Here is a local audio file: <audio>assets/audio.mp3</audio> and a network audio file: <audio>https://example.com/audio.mp3</audio>.',
+  tags: {
+    'audio': StyledTextAdvanceAudioTag(
+      onTap: (String? text, Map<String?, String?>? attributes) {
+        // Handle audio play action here. This might involve using the 'audioplayers' package
+        // to play the audio file specified in `text` or an attribute.
+      },
+    ),
+  },
+),
