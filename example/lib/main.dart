@@ -252,7 +252,7 @@ class DemoPage extends StatelessWidget {
                 const SizedBox(height: 20),
                 StyledTextAdvance(
                   text:
-                      'Here is a local audio file: <audio>assets/audio.mp3</audio> and a network audio file: <audio>https://example.com/audio.mp3</audio>.',
+                      'Here is a local audio file: <audio>assets/happy-day-148320.mp3</audio> and a network audio file: <audio>https://example.com/audio.mp3</audio>.',
                   tags: {
                     'audio': StyledTextAdvanceAudioTag(
                       onTap: (String? text, Map<String?, String?>? attributes) {
