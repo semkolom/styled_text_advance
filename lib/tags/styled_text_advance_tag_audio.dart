@@ -11,10 +11,7 @@ class StyledTextAdvanceAudioTag extends StyledTextAdvanceTagBase {
   /// Action to be called when the audio is tapped
   final StyledTextAdvanceTagActionCallback? onTap;
 
-  StyledTextAdvanceAudioTag({
-    this.source,
-    this.onTap,
-  });
+  StyledTextAdvanceAudioTag({this.source, this.onTap});
 
   @override
   InlineSpan createSpan({
@@ -31,25 +28,58 @@ class StyledTextAdvanceAudioTag extends StyledTextAdvanceTagBase {
             textContent.startsWith('https://'));
 
     final audioPlayer = AudioPlayer();
-    Widget audioWidget = IconButton(
-      icon: Icon(Icons.play_arrow),
-      onPressed: () async {
-        if (isNetworkAudio) {
-          await audioPlayer.play(UrlSource(textContent));
-        } else {
-          await audioPlayer.play(DeviceFileSource(textContent!));
-        }
+    // Initialize a boolean to manage play/pause state
+    bool isPlaying = false;
 
-        // If an onTap callback is provided, call it
-        if (onTap != null) {
-          onTap!(text, attributes);
-        }
-      },
+    // Create a row of audio control buttons
+    Widget audioControls = Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        IconButton(
+          icon: Icon(Icons.skip_previous),
+          onPressed: () async {
+            // Implement skipping backwards, e.g., restart or move to previous track
+            await audioPlayer.seek(Duration(seconds: 0)); // Example: Restart
+          },
+        ),
+        IconButton(
+          icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow),
+          onPressed: () async {
+            if (isPlaying) {
+              await audioPlayer.pause();
+            } else {
+              if (isNetworkAudio) {
+                await audioPlayer.play(UrlSource(textContent!));
+              } else {
+                await audioPlayer.play(DeviceFileSource(textContent!));
+              }
+            }
+            isPlaying = !isPlaying;
+
+            // If an onTap callback is provided, call it
+            onTap?.call(text, attributes);
+          },
+        ),
+        IconButton(
+          icon: Icon(Icons.skip_next),
+          onPressed: () async {
+            // Implement skipping forward, e.g., jump ahead 30 seconds or to next track
+            final position = await audioPlayer.getCurrentPosition();
+            final duration = await audioPlayer.getDuration();
+            final newPos = position! + Duration(seconds: 30);
+            if (newPos < duration!) {
+              await audioPlayer.seek(newPos);
+            } else {
+              // Optionally, move to next track or restart
+            }
+          },
+        ),
+      ],
     );
 
     // Create an InlineSpan for the audio control
     final InlineSpan span = WidgetSpan(
-      child: audioWidget,
+      child: audioControls,
       alignment: PlaceholderAlignment.middle, // Default alignment
     );
 
@@ -57,34 +87,64 @@ class StyledTextAdvanceAudioTag extends StyledTextAdvanceTagBase {
   }
 }
 
-class TextWithAudioWidget extends StatelessWidget {
+class TextWithAudioWidget extends StatefulWidget {
   final String textContent;
-  final AudioPlayer audioPlayer = AudioPlayer();
 
   TextWithAudioWidget({Key? key, required this.textContent}) : super(key: key);
 
   @override
+  _TextWithAudioWidgetState createState() => _TextWithAudioWidgetState();
+}
+
+class _TextWithAudioWidgetState extends State<TextWithAudioWidget> {
+  final AudioPlayer audioPlayer = AudioPlayer();
+  bool isPlaying = false;
+
+  @override
   Widget build(BuildContext context) {
-    // Ideally, you'd parse and process the textContent to separate text and audio parts
-    // For simplicity, this example assumes the whole content is an <audio> tag or plain text
-    if (textContent.contains('<audio')) {
-      // Extract the URL (simplistic approach, see parsing logic provided earlier)
+    if (widget.textContent.contains('<audio')) {
+      // Extract the URL
       final RegExp regExp = RegExp(r'<audio src="(.*?)"></audio>');
-      final match = regExp.firstMatch(textContent);
+      final match = regExp.firstMatch(widget.textContent);
       final audioSrc = match?.group(1) ?? "";
 
       return Column(
         children: [
           Text("Audio content available"),
-          IconButton(
-            icon: Icon(Icons.play_arrow),
-            onPressed: () => audioPlayer.play(UrlSource(audioSrc)),
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              IconButton(
+                icon: Icon(Icons.skip_previous),
+                onPressed: () {
+                  // Implement skip backward
+                },
+              ),
+              IconButton(
+                icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow),
+                onPressed: () {
+                  if (isPlaying) {
+                    audioPlayer.pause();
+                  } else {
+                    audioPlayer.play(UrlSource(audioSrc));
+                  }
+                  setState(() {
+                    isPlaying = !isPlaying;
+                  });
+                },
+              ),
+              IconButton(
+                icon: Icon(Icons.skip_next),
+                onPressed: () {
+                  // Implement skip forward
+                },
+              ),
+            ],
           ),
         ],
       );
     } else {
-      // If no <audio> tag is found, display the text as is
-      return Text(textContent);
+      return Text(widget.textContent);
     }
   }
 }

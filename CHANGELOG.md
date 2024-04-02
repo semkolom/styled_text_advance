@@ -58,3 +58,9 @@
 
 ## 1.0.1+6
 - Bug fixes.
+
+## 1.0.1+7
+- Bug fixes.
+
+## 1.0.1+8
+- Bug fixes.

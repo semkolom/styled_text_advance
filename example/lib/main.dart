@@ -144,8 +144,7 @@ class DemoPage extends StatelessWidget {
                 // Image
                 const SizedBox(height: 20),
                 StyledTextAdvance(
-                  text:
-                      'Here is a local image: <img>assets/image.jpg</img> and a network image: <img>https://example.com/image.jpg</img>.',
+                  text: 'Here is a local image: <img>assets/image.jpg</img>.',
                   tags: {
                     'img': StyledTextAdvanceImageTag(
                       width: 100,
@@ -252,7 +251,7 @@ class DemoPage extends StatelessWidget {
                 const SizedBox(height: 20),
                 StyledTextAdvance(
                   text:
-                      'Here is a local audio file: <audio>assets/happy-day-148320.mp3</audio> and a network audio file: <audio>https://example.com/audio.mp3</audio>.',
+                      'Here is a local audio file: <audio>assets/happy-day-148320.mp3</audio>.',
                   tags: {
                     'audio': StyledTextAdvanceAudioTag(
                       onTap: (String? text, Map<String?, String?>? attributes) {
