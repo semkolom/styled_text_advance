@@ -255,8 +255,22 @@ class DemoPage extends StatelessWidget {
                   tags: {
                     'audio': StyledTextAdvanceAudioTag(
                       onTap: (String? text, Map<String?, String?>? attributes) {
-                        // Handle audio play action here. This might involve using the 'audioplayers' package
-                        // to play the audio file specified in `text` or an attribute.
+                        // Log the audio file being played
+                        print("Playing audio file: $text");
+
+                        // Show a SnackBar as a UI update
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text('Playing audio: $text'),
+                            duration: Duration(seconds: 2),
+                          ),
+                        );
+
+                        // Example of playing the audio file, if necessary here
+                        // final audioFilePath = text;
+                        // if (audioFilePath != null) {
+                        //   audioPlayer.play(DeviceFileSource(audioFilePath));
+                        // }
                       },
                     ),
                   },

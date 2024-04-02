@@ -217,7 +217,7 @@ StyledTextAdvance(
 )
 ```
 
-Specifying the image handler #
+### Specifying the image handler #
 
 **IMAGE**
 ```dart
@@ -233,6 +233,10 @@ StyledTextAdvance(
                   ),
                 },
               ),
+```
+
+
+### Specifying the Audio style
 
 **AUDIO**
 StyledTextAdvance(

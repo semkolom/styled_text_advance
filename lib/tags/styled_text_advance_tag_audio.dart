@@ -1,6 +1,5 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:styled_text_advance/tags/styled_text_advance_tag_base.dart';
 import 'package:audioplayers/audioplayers.dart';
 
@@ -49,7 +48,7 @@ class StyledTextAdvanceAudioTag extends StyledTextAdvanceTagBase {
               await audioPlayer.pause();
             } else {
               if (isNetworkAudio) {
-                await audioPlayer.play(UrlSource(textContent!));
+                await audioPlayer.play(UrlSource(textContent));
               } else {
                 await audioPlayer.play(DeviceFileSource(textContent!));
               }
