@@ -42,6 +42,7 @@ class StyledTextAdvanceAudioTag extends StyledTextAdvanceTagBase {
           },
         ),
         IconButton(
+          // ignore: dead_code
           icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow),
           onPressed: () async {
             if (isPlaying) {
