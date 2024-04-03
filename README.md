@@ -239,6 +239,8 @@ StyledTextAdvance(
 ### Specifying the Audio style
 
 **AUDIO**
+```dart
+
 StyledTextAdvance(
   text: 'Here is a local audio file: <audio>assets/happy-day-148320.mp3</audio> and a network audio file: <audio>https://example.com/audio.mp3</audio>.',
   tags: {

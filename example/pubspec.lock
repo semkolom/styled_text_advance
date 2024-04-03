@@ -377,10 +377,10 @@ packages:
     dependency: "direct main"
     description:
       name: styled_text_advance
-      sha256: "277bdba22ff0501b52652ee943add9bb53833eabc84f820b6150c1bf6f3d7b1d"
+      sha256: c077b428b533e6caaad28a9ac2d0f9e1fbd1d087e39fea1d4e292011a591d3f5
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.1+8"
+    version: "1.0.1+9"
   synchronized:
     dependency: transitive
     description:
